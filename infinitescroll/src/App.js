@@ -1,17 +1,44 @@
 import React, { Component } from 'react';
-import CardList from "./CardList"
-import logo from './logo.svg';
+import Content from "./Content.js"
+import Header from "./Header.js"
 import './App.css';
 
+const SideMenuList = [
+  {id:1, name:"Item1", link:"#"},
+  {id:2, name:"Item2", link:"#"},
+  {id:1, name:"Item2", link:"#"},
+  {id:3, name:"Item3", link:"#"}
+]
 class App extends Component {
+  state = {
+    sideBarInHeader: window.innerWidth <= 768,
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", () => {
+      this.setState({
+        sideBarInHeader: window.innerWidth <= 768,
+      })
+    })
+  }
+  componentWillUnMount() {
+    window.removeEventListener("resize")
+  }
   render() {
+    const { sideBarInHeader } = this.state
+    const allProps = {
+      "listItem": SideMenuList,
+      "showSideBar": sideBarInHeader
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <CardList />
+        <Header
+          {...allProps}
+        />
+        <Content
+          {...allProps}
+          threshold={50}
+        />
       </div>
     );
   }

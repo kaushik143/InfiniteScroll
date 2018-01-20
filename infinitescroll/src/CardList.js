@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import InfiniteScroll from "./InfiniteScroll.js"
+import uuid from "uuid"
 import "./Card.css"
 
 const Card = ({ index }) => (
@@ -24,40 +26,29 @@ class CardList extends Component {
     },1500)
   }
 
-  onScroll = () => {
-    if (
-        (window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.state.loading
-      ) {
-        this.setState({
-          loading: true,
-        },  this.getFakeData())
-
-      }
-  }
-  componentWillMount() {
-    window.scroll(0,0)
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.onScroll, false);
-    //window.addEventListener('touchmove', this.onScroll, false);
-  }
-
-  componentWillUnMount() {
-    window.removeEventListener('scroll', this.onScroll, false);
-    //window.removeEventListener('touchmove', this.onScroll, false);
+  initFakeData = () => {
+    this.setState({
+      loading: true,
+    }, this.getFakeData())
   }
 
   render() {
     const { data, loading } = this.state
-    const FakeCard = data.map((value)=> <Card index={value} />)
+    const FakeCard = data.map((value)=> <Card index={value} key={uuid()} />)
     return (
-      <div className="card-container">
+      <InfiniteScroll
+        data={data}
+        loading={loading}
+        initFakeData={this.initFakeData}
+        {...this.props}
+      >
         {FakeCard}
         {
           loading &&
           "Loading..."
         }
-      </div>
+      </InfiniteScroll>
+
     );
   }
 }

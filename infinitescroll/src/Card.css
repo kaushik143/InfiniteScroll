@@ -1,7 +1,9 @@
 .card-container {
-  display: block;
-  width: calc(100% - 30px);
-  margin: 15px;
+  display: flex;
+  flex:12;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 30px;
 }
 .card {
   height: 100px;
@@ -15,4 +17,7 @@
 .card-content {
   background-color: #f2f2f2;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

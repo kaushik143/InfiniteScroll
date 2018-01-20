@@ -1,0 +1,7 @@
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+}

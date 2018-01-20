@@ -9,7 +9,9 @@ Project contains:
 
 To run this project:
   a) yarn install : To load all the dependencies.
+  
   b) yarn start : It will start the development server.
+  
   c) yarn build : To create build file.
 
 

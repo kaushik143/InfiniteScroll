@@ -8,6 +8,7 @@ Project contains:
 3) Infinite scrollable Content section
 
 To run this project:
+
   a) yarn install : To load all the dependencies.
   
   b) yarn start : It will start the development server.

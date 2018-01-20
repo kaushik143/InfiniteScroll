@@ -2,10 +2,12 @@ The purpose of this project is to create a Facebook like infinite scrollable lay
 
 Project contains:
 
-1) Header
-2) Responsive SideMenu:
-    a) Hamburger Icon will be shown in header once window.widht <=768.
-3) Infinite scrollable Content section
+      1) Header
+      
+      2) Responsive SideMenu:
+        a) Hamburger Icon will be shown in header once window.widht <=768.
+        
+      3) Infinite scrollable Content section
 
 To run this project:
 

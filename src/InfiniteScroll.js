@@ -23,7 +23,7 @@ class InfiniteScrolling extends Component {
 
   render() {
     return (
-      <div className="card-container" ref={(node) => this.scrollNode=node}>
+      <div className="card-container">
         {this.props.children}
       </div>
     )

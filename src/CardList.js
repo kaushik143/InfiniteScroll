@@ -12,13 +12,13 @@ const Card = ({ index }) => (
 
 class CardList extends Component {
   state = {
-      data: Array(20).fill(1).map((el,index)=>index+1),
+      data: Array(10).fill(1).map((el,index)=>index+1),
       loading: false,
   }
 
   getFakeData = () => {
     setTimeout(()=> {
-      var fakeData =  Array(20).fill(1).map((el,index)=>index+1)
+      var fakeData =  Array(10).fill(1).map((el,index)=>index+1)
       this.setState({
         data: this.state.data.concat(fakeData),
         loading: false,

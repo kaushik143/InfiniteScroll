@@ -6,8 +6,8 @@ import './App.css';
 const SideMenuList = [
   {id:1, name:"Item1", link:"#"},
   {id:2, name:"Item2", link:"#"},
-  {id:1, name:"Item2", link:"#"},
-  {id:3, name:"Item3", link:"#"}
+  {id:3, name:"Item3", link:"#"},
+  {id:4, name:"Item4", link:"#"}
 ]
 class App extends Component {
   state = {
@@ -37,7 +37,7 @@ class App extends Component {
         />
         <Content
           {...allProps}
-          threshold={50}
+          threshold={500}
         />
       </div>
     );

@@ -1,10 +1,10 @@
 name: CI
 on:
   pull_request:
-    branches: ['**']
+    branches: ["**"]
     types: [opened, synchronize, reopened, edited, labeled]
   push:
-    branches: ['**'']
+    branches: ["**"]
 jobs:
   build:
     name: Run Build

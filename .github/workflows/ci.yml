@@ -14,4 +14,4 @@ jobs:
         if: ${{github.event.type == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'documentation')}}
         run: |
         yarn build
-        echo ${{github.event.type == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'documentation')}}
+        echo "${{github.event.type == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'documentation')}}"

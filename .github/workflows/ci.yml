@@ -1,10 +1,19 @@
 name: CI
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: ["**"]
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
+  push:
+    branches: ["**"]
 jobs:
   build:
     name: Run Build
     runs-on: ubuntu-latest
     steps:
       - name: build
-        if: ${{ github.event_name == 'pull_request'}} && ${{ github.event.label.name != 'documentation' }}
-        run: yarn build
+        if: ${{github.event_name == 'pull_request'}} && !contains(github.event.pull_request.labels.*.name, 'documentation')}}
+        run: |
+          yarn build
+          echo "${{github.event_name == 'pull_request'}} && !contains(github.event.pull_request.labels.*.name, 'documentation')}}"
+          echo "${{github.event_name == 'pull_request'}}"
+          echo "${{!contains(github.event.pull_request.labels.*.name, 'documentation')}}"

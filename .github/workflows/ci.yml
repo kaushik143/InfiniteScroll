@@ -13,5 +13,5 @@ jobs:
       - name: build
         run: |
           yarn build
-          echo "${{github.event.type == 'pull_request'}}" 
+          echo "${{github.github.event_name == 'pull_request'}}" 
           echo "${{!contains(github.event.pull_request.labels.*.name, 'documentation')}}"

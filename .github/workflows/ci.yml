@@ -2,7 +2,7 @@ name: CI
 on:
   pull_request:
     branches: ["**"]
-    types: [opened, synchronize, reopened, edited, labeled]
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
   push:
     branches: ["**"]
 jobs:

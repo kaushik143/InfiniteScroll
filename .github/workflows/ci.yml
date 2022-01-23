@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
+        if: ${{github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'documentation')}}
         run: |
           yarn build
-          echo "${{github.github.event_name == 'pull_request'}}" 
-          echo "${{!contains(github.event.pull_request.labels.*.name, 'documentation')}}"
